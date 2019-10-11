@@ -7,7 +7,6 @@ mkdir moo
 cd moo
 mkdir bin
 mkdir src
-mkdir encoure
 cd ..
 tar xzvf LambdaMOO-1.8.1-unicode.tar.gz
 cd MOO-1.8.1

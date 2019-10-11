@@ -13,4 +13,6 @@ dnf --setopt=install_weak_deps=False --best --allowerasing install -v -y --nodoc
 useradd user
 cp /tmp/startup.sh /home/user/startup.sh
 chmod a+x /home/user/startup.sh
-
+chmod a+rx /home/user
+cd /var/www/html
+ln -s /home/user/moo/encore .
