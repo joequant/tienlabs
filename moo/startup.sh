@@ -1,4 +1,6 @@
 #!/bin/bash
 
-/home/user/moo/bin/moo
+cd /home/user/moo/bin
 /usr/sbin/httpd
+./moo enCore.db enCore-out.db
+

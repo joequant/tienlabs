@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8888:8888
+      - 7777:7777
       - 8001:80
     command: /home/user/startup.sh

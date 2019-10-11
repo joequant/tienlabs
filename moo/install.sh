@@ -12,5 +12,5 @@ dnf --setopt=install_weak_deps=False --best --allowerasing install -v -y --nodoc
     apache sudo wget gcc make byacc
 useradd user
 cp /tmp/startup.sh /home/user/startup.sh
-chmod a+x /home/user/statup.sh
+chmod a+x /home/user/startup.sh
 
