@@ -10,7 +10,7 @@ chmod a+rwx mayan postgres
 docker network create mayan
 
 docker pull mayanedms/mayanedms:latest
-docker pull postgres:12
+docker pull postgres:12-alpine
 docker run -d \
        --name mayan-edms-postgres \
        --network=mayan \
@@ -19,7 +19,7 @@ docker run -d \
        -e POSTGRES_DB=mayan \
        -e POSTGRES_PASSWORD=mayanuserpass \
        -v `pwd`/postgres:/var/lib/postgresql/data \
-       postgres:12
+       postgres:12-alpine
 
 sleep 60
 
