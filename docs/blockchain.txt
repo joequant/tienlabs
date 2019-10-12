@@ -1,0 +1,34 @@
+What are people doing wrong with blockchain.
+
+Two approaches:
+
+* Tech approach - Create tech infrastructure.
+** Problem: Lot's of wheel reinvention
+** Encourages complicated tech solutions for simple business problems
+** All tech pieces available
+
+* Enterprise approach
+** Business process optimization
+** Fixed against business workflows
+** Large company bureaucracy
+
+* Business model issues
+** Fixes things to existing workflows
+** Last mile problem -  No business efficiencies until everything is
+   in place.  Example: If you reduce securities settlement time to
+   zero then you have gained no efficiencies if your cash settlement
+   time is several days.
+** Tech and enterprise approach tries to recover funds directly from
+   services, which encourages making services complicated
+** Requires buyin from people that are going to get fired if the
+   project succeeds
+
+* Key power of blockchain
+** Allow efficient flows of information between diverse institutions
+** Consortia don't work!!!!  You end up with a shipping blockchain, an
+   insurance blockchain, a financial blockchain, which are not
+   interoperable.
+** Big businesses cannot make sudden strategic shifts.  SME's can.
+   But SME's have little capex budgets.
+
+

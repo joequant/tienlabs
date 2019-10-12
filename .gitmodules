@@ -1,0 +1,3 @@
+[submodule "naivecoin"]
+	path = local-blockchain
+	url = https://github.com/conradoqg/naivecoin

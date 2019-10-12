@@ -1,0 +1,20 @@
+* Experiments
+
+* Document processing (Think distributed Lotus Notes)
+** Open source frontend (Mayan EDMS)
+** Using blockchain and tienchat for distribution
+** Trying to integrate with IPFS
+
+* Hello Worlds:
+** Local mobile environment
+** Local blockchain environment
+
+* Virtual learning environment (Moo)
+** Using software from 1990's.  (Microsoft Teams)
+
+* Test local blockchain (Naivechain)
+** Simple local blockchain as a test harness
+
+* Use Tienchat has communications layer for automation (Tibco)
+** Connect Tienchat to rabbitmq and zeromq for RPC systems
+
