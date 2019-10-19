@@ -1,3 +1,9 @@
 [submodule "naivecoin"]
-	path = experiments/local-blockchain
+	path = experiments/local-blockchain/naivecoin
 	url = https://github.com/conradoqg/naivecoin
+[submodule "experiments/digital-envelope/mango"]
+	path = experiments/digital-envelope/mango
+	url = https://github.com/joequant/mango.git
+[submodule "experiments/digital-envelope/git-remote-gcrypt"]
+	path = experiments/digital-envelope/git-remote-gcrypt
+	url = https://github.com/joequant/git-remote-gcrypt.git
