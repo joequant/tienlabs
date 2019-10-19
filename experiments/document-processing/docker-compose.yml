@@ -1,0 +1,37 @@
+version: '3'
+services:
+  mayan-edms-postgres:
+    image: postgres:12-alpine
+    networks:
+       - mayan
+    environment:
+      - POSTGRES_USER=mayan
+      - POSTGRES_DB=mayan
+      - POSTGRES_PASSWORD=mayanuserpass
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+  mayan-edms:
+    image: mayanedms/mayanedms:latest
+    networks:
+      - mayan
+    ports:
+      - 81:8000
+    environment:
+      - MAYAN_DATABASE_ENGINE=django.db.backends.postgresql
+      - MAYAN_DATABASE_HOST=mayan-edms-postgres
+      - MAYAN_DATABASE_NAME=mayan
+      - MAYAN_DATABASE_PASSWORD=mayanuserpass
+      - MAYAN_DATABASE_USER=mayan
+      - MAYAN_DATABASE_CONN_MAX_AGE=0
+    volumes:
+      - ./mayan:/var/lib/mayan
+  start_dependencies:
+    networks:
+      - mayan
+    image: dadarek/wait-for-dependencies
+    depends_on:
+      - mayan-edms-postgres
+    command: mayan-edms-postgres:5432
+
+networks:
+  mayan:
