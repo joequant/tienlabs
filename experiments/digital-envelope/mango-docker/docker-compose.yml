@@ -1,0 +1,9 @@
+version:  '3'
+services:
+  mango-server:
+     image: "joequant/mango"
+     build:
+       context: .
+       dockerfile: Dockerfile
+       args:
+         base: mageia:7
