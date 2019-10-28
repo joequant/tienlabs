@@ -10,5 +10,5 @@ export GIT_PROXY=http://127.0.0.1:8080/
 #cache with verdacchio
 export NPM_CONFIG_REGISTRY=http://127.0.0.1:4873/
 export YARN_REGISTRY=http://127.0.0.1:4873/
-'
+:'
 export MAKEFLAGS=-j4

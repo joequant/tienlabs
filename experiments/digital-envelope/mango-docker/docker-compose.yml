@@ -7,3 +7,23 @@ services:
        dockerfile: Dockerfile
        args:
          base: mageia:7
+     volumes:
+       - "git:/home/user/git"
+       - "data:/home/user/data"
+     command: /home/user/startup.sh
+     user: user
+     stdin_open: true
+     tty: true
+volumes:
+  git:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $PWD/git
+  data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $PWD/data

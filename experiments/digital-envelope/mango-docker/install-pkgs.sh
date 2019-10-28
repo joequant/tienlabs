@@ -15,15 +15,19 @@ dnf upgrade --best --nodocs --allowerasing --refresh -y -x chkconfig -x filesyst
 
 # Refresh locale and glibc for missing latin items
 # needed for R to build packages
-dnf shell -v -y --setopt=install_weak_deps=False  --refresh <<EOF
-reinstall --best --nodocs --allowerasing locales locales-en glibc
-run
-EOF
+
+#dnf shell -v -y --setopt=install_weak_deps=False  --refresh <<EOF
+#reinstall --best --nodocs --allowerasing locales locales-en glibc
+#run
+#EOF
 
 #repeat packages in setup
 dnf --setopt=install_weak_deps=False --best --allowerasing install \
     -v -y --nodocs \
-    git
+    git \
+    golang \
+    make \
+    nodejs
 
 
 echo "ZONE=UTC" > /etc/sysconfig/clock
@@ -34,4 +38,29 @@ echo 'cubswin:)' | passwd user --stdin
 echo 'cubswin:)' | passwd root --stdin
 cd ~user
 mkdir git
-cd git
+pushd git
+git clone https://github.com/ethereum/go-ethereum
+pushd go-ethereum
+make geth
+popd
+git clone https://github.com/ipfs/go-ipfs
+pushd go-ipfs
+make install
+popd
+popd
+git clone https://github.com/joequant/mango-admin.git
+pushd mango-admin
+npm install -g
+popd
+git clone https://github.com/joequant/git-remote-mango.git
+pushd git-remote-mango
+npm install -g
+popd
+git clone https://github.com/joequant/git-remote-gcrypt.git
+pushd git-remote-gcrypt
+./install.sh
+popd
+mkdir data
+
+cp /tmp/startup.sh /home/user/startup.sh
+chmod a+x /home/user/startup.sh
