@@ -1,9 +1,6 @@
 [submodule "naivecoin"]
 	path = experiments/local-blockchain/naivecoin
 	url = https://github.com/conradoqg/naivecoin
-[submodule "experiments/digital-envelope/mango"]
-	path = experiments/digital-envelope/mango
-	url = https://github.com/joequant/mango.git
-[submodule "experiments/digital-envelope/git-remote-gcrypt"]
-	path = experiments/digital-envelope/git-remote-gcrypt
-	url = https://github.com/joequant/git-remote-gcrypt.git
+[submodule "experiments/digital-envelope/docker-compose-gitea"]
+	path = experiments/digital-envelope/docker-compose-gitea
+	url = https://github.com/sguter90/docker-compose-gitea
