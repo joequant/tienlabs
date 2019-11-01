@@ -10,7 +10,7 @@ services:
      volumes:
        - "git:/home/user/git"
        - "data:/home/user/data"
-     command: /home/user/startup.sh
+     command: /home/user/data/startup.sh
      user: user
      stdin_open: true
      tty: true

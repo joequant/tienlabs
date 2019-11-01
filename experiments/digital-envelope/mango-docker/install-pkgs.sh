@@ -27,8 +27,8 @@ dnf --setopt=install_weak_deps=False --best --allowerasing install \
     git \
     golang \
     make \
-    nodejs
-
+    nodejs \
+    python3-docutils
 
 echo "ZONE=UTC" > /etc/sysconfig/clock
 export TZ="UTC"
@@ -47,7 +47,6 @@ git clone https://github.com/ipfs/go-ipfs
 pushd go-ipfs
 make install
 popd
-popd
 git clone https://github.com/joequant/mango-admin.git
 pushd mango-admin
 npm install -g
@@ -60,7 +59,12 @@ git clone https://github.com/joequant/git-remote-gcrypt.git
 pushd git-remote-gcrypt
 ./install.sh
 popd
-mkdir data
+git clone https://github.com/joequant/mango
+popd
 
-cp /tmp/startup.sh /home/user/startup.sh
-chmod a+x /home/user/startup.sh
+chown user:user -R /home/user/git
+
+mkdir data
+mkdir logs
+cp /tmp/startup.sh /home/user/data/startup.sh
+chmod a+x /home/user/data/startup.sh
