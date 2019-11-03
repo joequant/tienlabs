@@ -11,6 +11,8 @@ services:
        - "git:/home/user/git"
        - "data:/home/user/data"
      command: /home/user/data/startup.sh
+     ports:
+       - 8545:8545
      user: user
      stdin_open: true
      tty: true
