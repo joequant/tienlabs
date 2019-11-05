@@ -7,11 +7,11 @@ source /tmp/proxy.sh
 
 echo "ZONE=UTC" > /etc/sysconfig/clock
 export TZ="UTC"
+export HOME=/home/user
 
 cd /home/user
 chown user:user -R /home/user/git
-chmod a+rx /root
-npm install -g truffle ganache-cli
+npm install -g  --unsafe-perm=true --allow-root truffle ganache-cli
 
 mkdir data
 mkdir logs
