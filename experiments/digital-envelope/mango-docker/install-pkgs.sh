@@ -11,9 +11,26 @@ export HOME=/home/user
 
 cd /home/user
 chown user:user -R /home/user/git
+usermod -aG wheel user
 npm install -g  --unsafe-perm=true --allow-root truffle ganache-cli
+pushd git/go-ethereum
+mv build/bin/geth /usr/bin
+popd
+
+pushd git/go-ipfs
+mv cmd/ipfs/ipfs /usr/bin
+popd
 
 mkdir data
-mkdir logs
-cp /tmp/startup.sh /home/user/data/startup.sh
+mkdir data/logs
+cp /tmp/startup.sh /home/user/data
+cp /tmp/CustomGenesis.json /home/user/data
 chmod a+x /home/user/data/startup.sh
+chown -R user:user data
+
+geth --datadir /home/user/data/test-net-blockchain \
+     init /home/user/data/CustomGenesis.json
+sudo -u user ipfs init
+cat <<EOF >> /etc/sudoers
+%wheel        ALL=(ALL)       NOPASSWD: ALL
+EOF

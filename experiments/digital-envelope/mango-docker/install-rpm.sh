@@ -14,5 +14,8 @@ urpmi --no-recommends --excludedocs --auto \
     gcc-c++ \
     make \
     nodejs \
-    python3-docutils
+    python3-docutils \
+    sudo \
+    openssl-devel
+
 

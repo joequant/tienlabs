@@ -29,7 +29,7 @@ make geth
 popd
 git clone https://github.com/ipfs/go-ipfs.git
 pushd go-ipfs
-make install
+make build GOFLAGS=--tags=openssl
 popd
 git clone https://github.com/joequant/mango-admin.git
 pushd mango-admin
@@ -49,3 +49,4 @@ popd
 git config --unset --global http.proxy || true
 git config --unset --global http.sslVerify || true
 git config --unset --global url."$GIT_PROXY".insteadOf || true
+
