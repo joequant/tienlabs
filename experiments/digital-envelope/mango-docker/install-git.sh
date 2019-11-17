@@ -23,11 +23,11 @@ fi
 cd ~user
 mkdir git
 pushd git
-git clone https://github.com/ethereum/go-ethereum.git
+git clone https://github.com/ethereum/go-ethereum.git --depth=1
 pushd go-ethereum
 make geth
 popd
-git clone https://github.com/ipfs/go-ipfs.git
+git clone https://github.com/ipfs/go-ipfs.git --depth=1
 pushd go-ipfs
 make build GOFLAGS=--tags=openssl
 popd
