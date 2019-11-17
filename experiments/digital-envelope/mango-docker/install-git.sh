@@ -46,6 +46,8 @@ popd
 git clone https://github.com/joequant/mango
 popd
 
+chown -R user:user git
+
 git config --unset --global http.proxy || true
 git config --unset --global http.sslVerify || true
 git config --unset --global url."$GIT_PROXY".insteadOf || true

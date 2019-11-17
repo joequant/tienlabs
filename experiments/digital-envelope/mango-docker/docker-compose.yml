@@ -8,8 +8,8 @@ services:
        args:
          base: mageia:7
      volumes:
-       - git
-       - data
+       - git:/home/user/git
+       - data:/home/user/data
      command: /home/user/data/startup.sh
      ports:
        - 8545:8545
