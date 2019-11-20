@@ -1,9 +1,11 @@
 \documentclass[journal]{IEEEtran}
 \begin{document}
-\title{Digital Envelopes for Blockchain Document Exchange}
+\title{Digital Envelope Microservices for Blockchain Document Exchange}
 \author{Joseph~Chen-Yu~Wang,~\IEEEmembership{TiEN Foundation}
-\thanks{e-mail: (joequant@tienpay.com).}}
+\thanks{e-mail: (joe@tienpay.com).}}
 \maketitle
+
+DRAFT - 20181120
 
 \begin{abstract}
 Blockchain brings with it the promise of increased efficiency by
@@ -31,24 +33,65 @@ document exchange.
 
 \subsection{Limitations of Current Systems}
 
-Current blockchain systems are typically based around an enterprise
-business process optimization paradigm, in which, there is a fixed
-business workflow, and the goal of the blockchain system is to
-optimize the business processes.  Another paradigm used is a
-consortium private blockchain model by which blockchain systems are
-agreed to by a consortium of businesses within a certain industry.
+Although there has been much interest in blockchain technology, there
+has been very few examples of production uses of blockchain for
+business systems.  We have been working with small medium enterprises
+involved in trading between Hong Kong and east Africa, and have
+attempted to use blockchain technology in support of this business and
+as such have developed some insight into the limitations of current
+systems.
 
-These approaches have a number of limitations.
+Among the issues that we have found in attempting to use blockchain
+for business applications are
+\begin{itemize}
+ \item System integration problem
+ \item Fixed workflows problem
+ \item Walled gardens problem
+ \item Weakest link problem
+\end{itemize}
 
-Actual supply chains and business processes are typically extremely
-fluid.  In many situations, the supply chain consists of a number of
-uncoordinated actors, and the entire supply chain process is not know
-to any particular actor.  
+\paragraph {System integration problem} Businesses typically have existing
+applications which complicated business logic.  Moreover these systems
+must be constantly updated to incorporate bug fixes and enhancements,
+and it is impractical to put the entire system into the blockchain.
 
-\section{Requirements}
+\paragraph {Fixed workflows problem} Another issue is that because blockchain
+smart contracts cannot easily be changed after the contract is pushed
+to the blockchain, smart contracts typically assume fixed workflows.
+In actual business situations, the workflow is subject to change.
+Moreover in situations were there are multiple actors, the entire
+workflow may not be known to any particular party.
 
-Reduce system to minimial requirements.  Business processes can be
-reduced to exchange of documents.
+\paragraph {Walled garden issues problem} The usefulness of blockchain is in
+the ability to exchanged data between decentralized actors.  However,
+most of the blockchain projects that have been proposed thus far
+assume that the actors in the blockchain are from similar industries
+within a consortium.  However, this prevents blockchain from being
+used to exchange information between different industries.
+
+\paragraph {Weakest link issues problem} One further problem with blockchain
+systems is that they typically have weakest leak issues in that there
+are no productivity improvements when blockchain is used only for part
+of the workflow.
+
+Because of these issues our previous efforts to apply blockchain
+technology as a business process have been unsuccessful.  However,
+our earlier failures in applying blockchain to coffee supply chains
+have given us experience for our current effort.
+
+\section{System Design}
+
+One key effort has been to focus on the system design of our system.
+Rather than creating a general end to end system which runs into the
+various problems, we are creating a microservice that provides simple
+document processing functionality which can be incorporated in various
+business processes.  In addition to the microservice, we are applying
+our software to two specific workflows which can then be used in
+actual business application.
+
+Our microservice implements the concept of a digital envelope.
+
+
 
 \section{Implementation}
 
