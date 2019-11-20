@@ -27,10 +27,10 @@ git clone https://github.com/ethereum/go-ethereum.git --depth=1
 pushd go-ethereum
 make geth
 popd
-git clone https://github.com/ipfs/go-ipfs.git --depth=1
-pushd go-ipfs
-make build GOFLAGS=--tags=openssl
-popd
+#git clone https://github.com/ipfs/go-ipfs.git --depth=1
+#pushd go-ipfs
+#make build GOFLAGS=--tags=openssl
+#popd
 git clone https://github.com/joequant/mango-admin.git
 pushd mango-admin
 npm install -g
@@ -44,6 +44,14 @@ pushd git-remote-gcrypt
 ./install.sh
 popd
 git clone https://github.com/joequant/mango
+
+pushd go-ethereum
+mv build/bin/geth /usr/bin
+popd
+
+#pushd go-ipfs
+#mv cmd/ipfs/ipfs /usr/bin
+#popd
 popd
 
 chown -R user:user git

@@ -13,6 +13,7 @@ services:
      command: /home/user/data/startup.sh
      ports:
        - 8545:8545
+       - 5002:5002
      user: user
      stdin_open: true
      tty: true

@@ -21,6 +21,7 @@ urpmi --no-recommends --excludedocs --auto \
     make \
     nodejs \
     python3-docutils \
+    python3-pip \
     sudo \
     openssl-devel \
     gnupg2
