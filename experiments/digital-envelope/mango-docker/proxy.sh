@@ -1,4 +1,4 @@
-#: '
+: '
 export http_proxy=http://172.17.0.1:3128/
 export https_proxy=http://172.17.0.1:3128/
 export ftp_proxy=http://172.17.0.1:3128/
@@ -11,5 +11,5 @@ export PIP_INDEX_URL=http://127.0.0.1:3141/root/pypi/+simple/
 export NPM_CONFIG_REGISTRY=http://127.0.0.1:4873/
 export YARN_REGISTRY=http://127.0.0.1:4873/
 export TZ=Asia/Hong_Kong
-#:'
+:'
 export MAKEFLAGS=-j4

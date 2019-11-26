@@ -7,5 +7,6 @@ RUN source /tmp/install-rpm.sh ; rm /tmp/*.sh
 COPY install-git.sh proxy.sh /tmp/
 RUN source /tmp/install-git.sh ; rm /tmp/*.sh
 COPY install-pkgs.sh proxy.sh startup.sh CustomGenesis.json \
-     graphql-server.py /tmp/
+     test-system.sh \
+     graphql-server.js /tmp/
 RUN source /tmp/install-pkgs.sh ; rm /tmp/*.sh
