@@ -13,6 +13,6 @@ else
 			 --mnemonic="myth like bonus scare over problem client lizard pioneer submit female collect" \
 			 >> data/logs/ganache.log 2>&1 &
 fi
-/home/user/data/graphql-server.py >> data/logs/graphql-server.log 2>&1 &
+node /home/user/data/graphql-server.js >> data/logs/graphql-server.log 2>&1 &
 /usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
 exec /bin/bash

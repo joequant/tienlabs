@@ -13,23 +13,31 @@ export IPFS_PATH=/home/user/data/jsipfs
 cd /home/user
 chown user:user -R /home/user/git
 usermod -aG wheel user
-npm install -g --unsafe-perm=true --allow-root truffle
-npm install -g --unsafe-perm=true --allow-root ganache-cli
-npm install -g --unsafe-perm=true --allow-root ipfs
-npm install -g --unsafe-perm=true --allow-root web3
-pip3 install ariadne Flask
+npm install -g --unsafe-perm=true --allow-root --verbose ipfs truffle \
+    ganache-cli web3 express graphql-upload \
+    express-graphql graphql graphql-upload modclean --save
+
+pushd /usr/lib/node_modules
+modclean -r -f
+popd
 
 mkdir data
 mkdir data/logs
 mkdir data/ganache
+
+jsipfs init
 cp /tmp/startup.sh /home/user/data
 cp /tmp/CustomGenesis.json /home/user/data
-cp /tmp/graphql-server.py /home/user/data
+cp /tmp/test-system.sh /home/user/data
 chmod a+x /home/user/data/startup.sh
 geth --datadir /home/user/data/geth \
      init /home/user/data/CustomGenesis.json
+
+cp /tmp/graphql-server.js /home/user/data
+pushd data
+npm link express express-graphql graphql
+popd
 chown -R user:user data .npm .node-gyp .config
-sudo -u user jsipfs init
 cat <<EOF >> /etc/sudoers
 %wheel        ALL=(ALL)       NOPASSWD: ALL
 EOF
