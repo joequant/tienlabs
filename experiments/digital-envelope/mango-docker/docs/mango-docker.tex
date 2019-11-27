@@ -1,16 +1,22 @@
 \documentclass[journal]{IEEEtran}
+\usepackage{verbatim}
+\usepackage{graphicx}
 \begin{document}
 \title{Digital Envelope Microservices for Blockchain Document Exchange}
 \author{Joseph~Chen-Yu~Wang,~\IEEEmembership{TiEN Foundation}
 \thanks{e-mail: (joe@tienpay.com).}}
 \maketitle
 
-DRAFT - 20181122
+DRAFT - 20181127 - INCOMPLETE NOT FOR CITATION - CONTENTS SUBJECT TO CHANGE
 
 \begin{abstract}
-Blockchain brings with it the promise of increased efficiency by
-allowing for decentralized data exchange between unaffliated parties.
-However, the use of blockchain has been limited by the ability to
+Blockchain is a revolutionary technology which has much potential to
+improve business processes by allowing for decentralized data
+exchange.  However, based on our experiences in attempting to use
+blockchain in African coffee trade, we believe that current
+applications of blockchain are severely flawed at both the use case
+level and implementation level.  In order to address these flaws
+we have designed a microservice intended to authenticate and exchange
 exchange basic business documents.  This paper outlines the design and
 implementation of a digital envelope system, by which arbitrary
 documents can be added and annotated into the ethereum blockchain.
@@ -23,23 +29,47 @@ Blockchain
 
 \section{Introduction}
 Blockchain and decentralized finance technology brings with it the
-promise of increased efficiency in business processes.  In order to
-explore the uses of blockchain, we have attempted to apply blockchain
-technology to coffee trading along between Hong Kong and Tanzania.
-However in attempting to use blockchain technologies, we have found
-that existing systems are not suitable for our efforts.  As such we
-have designed and a system which forms the business of blockchain
-document exchange.
+promise of increased efficiency in business processes.  In particular,
+blockchain has been cited by the United Nations as a potentially
+transformative technology for agriculture.\cite{fao:blockchain} In
+addition, blockchain has been identified by President Xi Jinping of
+China as a critical technology, and it's application will be an
+important part of the China's Belt and Road Initiative.
 
-\subsection{Limitations of Current Systems}
+In order to explore the uses of blockchain, we have attempted to apply
+blockchain technology to trading coffee and manufactured goods along
+between Hong Kong and Tanzania.  We established a pilot project to
+import coffee from Tanzania to Hong Kong, and to also export
+manufactured projects from the Greater Bay Area to Tanzania.  In doing
+so, we attempted to use a number of blockchain technology.  Among all
+of the blockchain technologies we attempted to use, only
+cryptocurrencies proved to be useful, and it was our experience that
+all other blockchain systems we attempted to use were completely
+unusable.
 
-Although there has been much interest in blockchain technology, there
-has been very few examples of production uses of blockchain for
-business systems.  We have been working with small medium enterprises
-involved in trading between Hong Kong and east Africa, and have
-attempted to use blockchain technology in support of this business and
-as such have developed some insight into the limitations of current
-systems.
+In this paper, we explain why we found blockchain technologies other
+than bitcoin proved unsuitable, and we explain current work that we
+are undertaking with the TiEN Foundation to address the issues that we
+found in our experiences.
+
+\subsection{Importance of Bitcoin}
+The only blockchain technology which proved to be useful in our pilot
+project was bitcoin.  The use of bitcoin allowed us to instantly
+transmit funds between Hong Kong and Tanzania and to track payments.
+Our payments consisted of converting Hong Kong dollars to bitcoin via
+a cryptocurrency exchange, transmitting it to Tanzania, and then
+converting the bitcoin to Tanzanian dollars via a local bitcoin
+exchanger.  The use of bitcoin allowed us to transmit payments
+instantly and allowed us to track the receipt of payments.  Bitcoin
+also enabled us to connect with the local technology community in
+Africa.
+
+\subsection{General Limitations of Current Systems}
+Aside from the use of bitcoin, we attempted to use blockchain systems
+within our coffee trade.  Other than bitcoin, we found that all the
+systems we examined were unsuitable for our pilot project. There are a
+number of general issues that we found to be problematic in addition
+to specific issues associated with agricultural use cases.
 
 Among the issues that we have found in attempting to use blockchain
 for business applications are
@@ -79,26 +109,195 @@ technology as a business process have been unsuccessful.  However,
 our earlier failures in applying blockchain to coffee supply chains
 have given us experience for our current effort.
 
+\subsection{Use Case Limitations}
+
+Aside from the general limitations of blockchain systems, we
+identified several specific issues associated with the use cases for
+agriculture identified with the United Nations report, namely the use
+of blockchain to track land tenure and to assure provenance of goods.
+
+With respect of land tenure, our experience the actual user of the
+land is often controlled by informal and highly complex agreements
+that are not recorded in the land office.  Rather than recording
+formal usage of the land, our experience is that there are often
+informal agreements that are not centrally recorded.  Based on our
+experience, it is our view that in recording land tenure or other
+agreements that instead of a system that records centralized land
+transfers, that there would be great usefulness in have a system by
+which private agreements between individuals can be recorded and
+authenticated for later retrieval.  In addition, even a system that
+allows an individual to record a authenticated diary would be useful
+in enforcing private informal land use agreements.
+
+With respect to supply chains, we have found that people viewing the
+supply chain often view the system as a set of fixed steps which can
+then be optimized.  In practice, we found that there was a
+coordination problem, while all of the actors in the supply chain may
+benefit from increased transparency, each individual actor has no
+incentive to adopt new technology and tremendous disincentives to do
+so.  In particularly, within the coffee supply chain, each actor
+typically is aware of only their upstream source and their downstream
+consumer.  Each actor is disincentivized from providing information on
+their suppliers and consumers out of fear of being disintermediated.
+Also because each actor receives their income from the markup between
+producer and consumer, the actors wish to maintain bargaining power by
+keeping the prices paid opaque.  In short, while the supply chain as a
+whole may benefit from greater transparency, no one actor gains by
+making their part of the supply chain more transparent.  To deal with
+this issue, we are focusing on technologies that can be adopted by one
+link on the chain and which have the potential to create increased
+returned through efficiency in one single part of the chain which
+would benefit that individual actor.
+
+There are two additional issues which were identified in our pilot
+project which relate to vendor lock-in and use of local technical
+resources.  In the developed world, there has been a movement to
+software-as-a-service models, however it is our experience that the
+actors in our supply chain are reluctant to build their business
+around a service which may disappear, and this renders software as a
+service models problematic.  In addition, we have found that there is
+a great deal of local IT talent in Tanzania which can be used to
+deploy or customize software particularly open-source systems.
+However, there are not the resources available to build and maintain
+complex enterprise systems, and the availablity and type of local
+software resource leads us away from software as a service models and
+toward models involving containerized open source systems.
+
 \section{System Design}
 
-One key effort has been to focus on the system design of our system.
-Rather than creating a general end to end system which runs into the
-various problems, we are creating a microservice that provides simple
-document processing functionality which can be incorporated in various
-business processes.  In addition to the microservice, we are applying
-our software to two specific workflows which can then be used in
-actual business application.
+Our unsatisfactory experiences with existing blockchain systems gives
+us some insight into systems which we think may be useful for our use
+cases.  Rather than creating a general end to end system which runs
+into the various problems, we are creating a microservice that
+provides simple document processing functionality which can be
+incorporated in various business processes.  In addition to the
+microservice, we are applying our software to two specific workflows
+which can then be used in actual business application.
 
 Our microservice implements the concept of a digital envelope.  The
 digital envelope can contain a document with annotations.  Once the
 digital envelope is created, the contents of the envelope can be
 posted onto a blockchain and can be accessed by anyone that has the
-address of the envelope 
+address of the envelope.  The microservice will be implemented as a
+server with an interface using graphql API.  In order to increase
+security, our design is such that the keys and authenticating
+information not be stored on the server but rather in an external
+digital wallet consisting of the TiENChat chat application, and can be
+adapted to allow for biometric authentication.
+
+Our microservice provides several blockchain benefits.  First the it
+provides timestamp services that insures when the document was created
+and the document has not been altered since the time of
+creation. Second our system creates a common format that allows
+documents to be exchanged on the blockchain and integrated with other
+blockchain systemms.  Two companies or industries with different
+workflows can perform these workflows internal, but exchange data
+using digital envelopes.  Finally, our system allows companies to move
+their processes onto blockchain only when needed.
 
 \section{Implementation}
 
-Implemented as docker imagine using git as document version control
-and uses mango distributed git system.  
+The implementation of our microservice uses as its document store the
+Git version control system, and uses the work of the Mango project to
+decentralize the Git version control system \cite{git} to use the
+ethereum blockchain and the IPFS filesystem\cite{ipfs} for the data
+store.  Our work will require the creation of a GraphQL API to
+simplify access in working with documents.  The entire server side
+system is encapulated within a docker image making the server system
+easily deployable and maintainable with local IT resources in emerging
+markets.
+
+The use of the git version control system allows for several
+features.  Using the submodule feature, a digital envelope can contain
+other digital envelopes.
+
+Our system can be configured to distribute documents both on the
+public ethereum and IPFS datastore as well as distributing documents
+in private blockchains based on ethereum and IPFS.
+
+\begin{comment}
+@startuml
+
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+ 
+node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+
+cloud {
+  [Example 1]
+}
+
+
+database "MySql" {
+  folder "This is my folder" {
+	[Folder 3]
+  }
+  frame "Foo" {
+	[Frame 4]
+  }
+}
+
+
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
+\end{comment}
+\begin{figure}
+  \includegraphics[width=\linewidth]{mango-docker.png}
+\end{figure}
+\begin{comment}
+@startuml
+
+package "Another Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+ 
+node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+
+cloud {
+  [Example 1]
+}
+
+
+database "MySql" {
+  folder "This is my folder" {
+	[Folder 3]
+  }
+  frame "Foo" {
+	[Frame 4]
+  }
+}
+
+
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
+\end{comment}
+
+\subsection{Current status}
+
+We are currently in the process of implementing our design and the
+source code for are systems are available via the joequant/tienlabs
+repository.  The first phase of our system will involve the
+development of systems that will allow the circulation of public
+documents such as business registration certificates.  The second
+phase will involve introducing encryption to allow circulation of
+private documents.  The third phase will integrate the document
+exchange system with third party document management systems such as
+MayanEDMS or ERP systems such as Odoo.
 
 \section{Conclusion}
 We have implemented this system using TiENChat technologies which is
@@ -106,6 +305,9 @@ available on github with the directory joequant/tienlabs.  Our
 software is issued under the an LGPL license.
 
 
+\section{Acknowledgements}
+We would like to thank Robin Owmega of Wageni Technologies in
+assisting us in setting up our coffee trading pilot project.
 
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
