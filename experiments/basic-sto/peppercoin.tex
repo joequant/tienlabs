@@ -3,12 +3,20 @@
 \title{Peppercoin: A simple asset backed security token}
 \author{Joseph C Wang \thanks{TiENChat Foundation}}
 \date{\today}
- 
 
- 
 \maketitle
 
 \begin{abstract}
+
+Although there has been great interest in using security tokens to
+allow for the tokenizing of assets, as of late 2019, this effort seems
+to have stalled.  Based on our experiences in attempting to tokenize
+venture capital funds, we have identified several problems which have
+limited the promotion of security tokens.  We believe that these
+problems can be resolved with standardized legal documentation, and
+have produces an example security token to promote the standarization
+of legal documentation.
+
 Recent changes in Hong Kong securities regulation create an opt-in
 procedure by which a cryptoexchange that wishes to be regulated by the
 Hong Kong regulation can do so by trading a security token.  Motivated
@@ -19,7 +27,39 @@ being regulated.
 In addition to this addition motivation, we hope that 
 \end{abstract}
 
-\section{Securities regulatory regime under Hong Kong law}
+\section{Introduction}
+In contrast to the boom in initial coin offerings, the market for
+security tokens has been extremely subdued.  In understanding way the
+market for security tokens has failed to take off in the way that
+initial coin offerings, we have had extension conversations with many
+different persons in the cryptocurrency industry, and have concluded
+that there are severe limitations in the creation of security tokens.
+
+The initial coin offering market was driven by speculation and
+interest from new investors who were interested in either outsize
+returns or conversely in moving capital across borders.  Because these
+speculative investors were interested in outsized returns, the primary
+mentality of the investor was typically of a gambler rather than an
+investor.  The speculative bubble also created a large margin which
+allowed for cost recovery by service providers.
+
+
+
+\subsection{Issues of security tokens}
+
+Current security tokens are completely new offerings.  This creates
+extra expense due to the novelity of a security token offering.  The
+novelty of security tokens makes them less attractive to purchasers of
+tokens.
+
+In addition, the high cost of issuing a security token makes it
+unsuitable for certain applications.  Fund managers typically operate
+with very low margins, and the high cost of issuing security tokens
+prevents certain uses.
+
+There are 
+
+\subsection{Securities regulatory regime under Hong Kong law}
 
 In contrast to the regulatory regimes in other regions, the definition
 of securities in Hong Kong can be expanded only by legislative actions
@@ -36,14 +76,15 @@ challenge that action.
 
 In addition, there are constitutional limitations on the ability of
 the Hong Kong to regulate securities.  Article 8 of the Basic Law
-requires that any
+requires that any changes the 
 
 The result of these limitations is that 
 
-\section{Status of Peppercoin under securities law}
+\subsection{Status of Peppercoin under securities law}
 
-\section{Binding problem}
+\section{Design}
 
+\subsection{Binding problem}
 One of the basic issues for virtual assets is to bind to the token to
 an owmership right.  A typical example of the binding problem exists
 if Alice hands the keys to his house or car to Bob.  In most business
@@ -74,7 +115,7 @@ Bob, Alice would not have the ability to recover tokens from Bob or to
 prevent Bob from enjoying the benefits of holding the tokens.
 
 
-\section{Design of peppercoin}
+\section{Implementation of peppercoin}
 
 Peppercoin with two levels.  At the top level, the legal structure of
 peppercoin consists of a limited parter
