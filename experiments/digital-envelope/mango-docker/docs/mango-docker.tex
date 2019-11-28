@@ -1,6 +1,7 @@
 \documentclass[journal]{IEEEtran}
 \usepackage{verbatim}
 \usepackage{graphicx}
+\usepackage{url}
 \begin{document}
 \title{Digital Envelope Microservices for Blockchain Document Exchange}
 \author{Joseph~Chen-Yu~Wang,~\IEEEmembership{TiEN Foundation}
@@ -17,7 +18,7 @@ blockchain in African coffee trade, we believe that current
 applications of blockchain are severely flawed at both the use case
 level and implementation level.  In order to address these flaws
 we have designed a microservice intended to authenticate and exchange
-exchange basic business documents.  This paper outlines the design and
+basic business documents.  This paper outlines the design and
 implementation of a digital envelope system, by which arbitrary
 documents can be added and annotated into the ethereum blockchain.
 \end{abstract}
@@ -33,7 +34,7 @@ promise of increased efficiency in business processes.  In particular,
 blockchain has been cited by the United Nations as a potentially
 transformative technology for agriculture.\cite{fao:blockchain} In
 addition, blockchain has been identified by President Xi Jinping of
-China as a critical technology, and it's application will be an
+China as a critical technology\cite{xi}, and its application will be an
 important part of the China's Belt and Road Initiative.
 
 In order to explore the uses of blockchain, we have attempted to apply
@@ -198,8 +199,8 @@ their processes onto blockchain only when needed.
 \section{Implementation}
 
 The implementation of our microservice uses as its document store the
-Git version control system, and uses the work of the Mango project to
-decentralize the Git version control system \cite{git} to use the
+Git version control system, and uses the work of the Mango
+project\cite{mango} to decentralize the Git version control system \cite{git} to use the
 ethereum blockchain and the IPFS filesystem\cite{ipfs} for the data
 store.  Our work will require the creation of a GraphQL API to
 simplify access in working with documents.  The entire server side
@@ -276,15 +277,8 @@ full potential.
 We would like to thank Robin Owmega of Wageni Technologies in
 assisting us in setting up our coffee trading pilot project.
 
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
-
+\bibliography{mango-docker}
+\bibliographystyle{ieeetr}
 \end{document}
 
 
