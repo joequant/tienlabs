@@ -218,74 +218,32 @@ in private blockchains based on ethereum and IPFS.
 \begin{comment}
 @startuml
 
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
+package "Docker Image" {
+  [GraphJS API]
+  [Git Repository]
+  [Mango Interface]
 }
- 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-} 
 
 cloud {
-  [Example 1]
+  [Ethereum Blockchain]
 }
 
-
-database "MySql" {
-  folder "This is my folder" {
-	[Folder 3]
-  }
-  frame "Foo" {
-	[Frame 4]
-  }
+cloud {
+  [IPFS Data Store]
 }
 
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
+[Document] --> [GraphJS API]
+[GraphJS API] --> [Git Repository]
+[Git Repository] --> [Mango Interface]
+[Mango Interface] --> [Ethereum Blockchain]
+[Mango Interface] --> [IPFS Data Store]
 
 @enduml
 \end{comment}
 \begin{figure}
   \includegraphics[width=\linewidth]{mango-docker.png}
+  \caption{Block Diagram of Microservice}
 \end{figure}
-\begin{comment}
-@startuml
-
-package "Another Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
- 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-} 
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-	[Folder 3]
-  }
-  frame "Foo" {
-	[Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-\end{comment}
 
 \subsection{Current status}
 
@@ -297,13 +255,22 @@ documents such as business registration certificates.  The second
 phase will involve introducing encryption to allow circulation of
 private documents.  The third phase will integrate the document
 exchange system with third party document management systems such as
-MayanEDMS or ERP systems such as Odoo.
+MayanEDMS or ERP systems such as Odoo.  We also plan to see if our
+system can be used for the decentralized distribution of educational
+data by interfacing our systems with Learning Management Systems such
+as Moodle.
+
+Simultaneous with our development efforts, we are working with
+business partners of the TiEN Foundation in order to deploy our
+technology and receive feedback as to the applicability of our
+solutions.
 
 \section{Conclusion}
-We have implemented this system using TiENChat technologies which is
-available on github with the directory joequant/tienlabs.  Our
-software is issued under the an LGPL license.
-
+Although blockchain is an extremely promising technology, so far it
+has not achieved it's potential due to issues that we have found in
+the course of our pilot projects.  We are hoping that the microservice
+design which we have undertaken will allow blockchain to achieve its
+full potential.
 
 \section{Acknowledgements}
 We would like to thank Robin Owmega of Wageni Technologies in
