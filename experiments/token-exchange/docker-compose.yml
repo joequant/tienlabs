@@ -1,0 +1,13 @@
+version:  '3'
+services:
+  nydax-server:
+     image: "joequant/nydax"
+     build:
+       context: .
+       dockerfile: Dockerfile
+     ports:
+        - 3000:3000
+     user: user
+     command: /home/user/git/nydax/bin/start.sh
+     stdin_open: true
+     tty: true
