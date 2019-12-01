@@ -11,3 +11,14 @@ services:
      command: /home/user/git/nydax/bin/start.sh
      stdin_open: true
      tty: true
+  mariadb:
+    image: 'maria/bionic:10.4'
+    environment:
+      - MARIADB_USER=bn_moodle
+      - MARIADB_DATABASE=bitnami_moodle
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - 'mariadb_data:/var/lib/mysql'
+volumes:
+  mariadb_data:
+    driver: local

@@ -2,17 +2,20 @@
 # These are all of the packages that need to be installed before bootstrap
 # is run
 set -e -v
+source /tmp/proxy.sh
 useradd user --home /home/user
 mkdir /home/user
 chmod a+rx ~user
 
 apt-get update
-apt-get install git
+apt-get -y install git sudo npm nodejs apt-utils
 cd ~user
 mkdir git
 pushd git
 git clone https://github.com/joequant/nydax
-nydax/bin/install.sh
+pushd nydax/bin
+./install.sh
+popd
 popd
 
 chown user:user -R /home/user/git
