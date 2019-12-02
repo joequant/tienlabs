@@ -1,9 +1,9 @@
 run:
-	java -jar plantuml.jar mango-docker.tex
-	pdflatex mango-docker.tex
-	bibtex mango-docker
-	pdflatex mango-docker.tex
-	pdflatex mango-docker.tex
+	java -jar plantuml.jar document-server.tex
+	pdflatex document-server.tex
+	bibtex document-server
+	pdflatex document-server.tex
+	pdflatex document-server.tex
 
 plantuml.jar:
 	wget http://downloads.sourceforge.net/projects/plantuml/files/plantuml.jar
