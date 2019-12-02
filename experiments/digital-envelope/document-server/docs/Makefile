@@ -7,3 +7,6 @@ run:
 
 plantuml.jar:
 	wget http://downloads.sourceforge.net/projects/plantuml/files/plantuml.jar
+
+clean:
+	rm -f *{.aux,.bbl,.blg,-blx.bib,.xml,.pdf,.log,.png}
