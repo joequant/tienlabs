@@ -1,9 +1,10 @@
-var express = require('express');
-var graphqlHTTP = require('express-graphql');
-var { buildSchema } = require('graphql');
+// See https://github.com/graphql/graphql-js/issues/1479
+import graphql from 'graphql/index.js'
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
 
 // Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
+var schema = graphql.buildSchema(`
   type Query {
     hello: String
   }
