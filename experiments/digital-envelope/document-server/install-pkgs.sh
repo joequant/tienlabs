@@ -15,7 +15,7 @@ chown user:user -R /home/user/git
 usermod -aG wheel user
 npm install -g --unsafe-perm=true --allow-root --verbose ipfs truffle \
     ganache-cli web3 express graphql-upload \
-    express-graphql graphql graphql-upload modclean \
+    apollo-server graphql graphql-upload modclean \
     child_process util --save
 
 pushd /usr/lib/node_modules
@@ -36,7 +36,7 @@ geth --datadir /home/user/data/geth \
 
 cp /tmp/graphql-server.mjs /home/user/data
 pushd data
-npm link express express-graphql graphql child_process util
+npm link express apollo-server graphql child_process util
 popd
 chown -R user:user data .npm .node-gyp .config
 cat <<EOF >> /etc/sudoers

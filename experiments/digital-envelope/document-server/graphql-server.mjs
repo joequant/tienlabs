@@ -1,27 +1,22 @@
-// See https://github.com/graphql/graphql-js/issues/1479
-import graphql from 'graphql/index.js'
-import express from 'express';
-import graphqlHTTP from 'express-graphql';
+// nodejs does not have named exports
+import apolloServer from 'apollo-server';
+const { ApolloServer, gql } = apolloServer;
 
 // Construct a schema, using GraphQL schema language
-var schema = graphql.buildSchema(`
+const typeDefs = gql`
   type Query {
     hello: String
   }
-`);
+`;
 
 // The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return 'Hello world!';
-  },
+const resolvers = {
+Query: {
+  hello: () => 'Hello world!',
+  }
 };
 
-var app = express();
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
-app.listen(4000, '0.0.0.0');
-console.log('Running a GraphQL API server at localhost:4000/graphql');
+const server = new ApolloServer({typeDefs, resolvers});
+server.listen(4000, '0.0.0.0').then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`);
+});
