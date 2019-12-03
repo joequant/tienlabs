@@ -1,7 +1,7 @@
 version:  '3'
 services:
-  mango-server:
-     image: "joequant/mango"
+  document-server:
+     image: "joequant/document-server"
      build:
        context: .
        dockerfile: Dockerfile
