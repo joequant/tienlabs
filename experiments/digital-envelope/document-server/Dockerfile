@@ -8,5 +8,5 @@ COPY install-git.sh proxy.sh /tmp/
 RUN source /tmp/install-git.sh ; rm /tmp/*.sh
 COPY install-pkgs.sh proxy.sh startup.sh CustomGenesis.json \
      test-system.sh \
-     graphql-server.mjs /tmp/
+     graphql-server.mjs package.json /tmp/
 RUN source /tmp/install-pkgs.sh ; rm /tmp/*.sh

@@ -13,20 +13,12 @@ export IPFS_PATH=/home/user/data/jsipfs
 cd /home/user
 chown user:user -R /home/user/git
 usermod -aG wheel user
-npm install -g --unsafe-perm=true --allow-root --verbose ipfs truffle \
-    ganache-cli web3 express graphql-upload \
-    apollo-server graphql graphql-upload modclean \
-    child_process util --save
-
-pushd /usr/lib/node_modules
-modclean -r -f
-popd
 
 mkdir data
 mkdir data/logs
 mkdir data/ganache
 
-jsipfs init
+
 cp /tmp/startup.sh /home/user/data
 cp /tmp/CustomGenesis.json /home/user/data
 cp /tmp/test-system.sh /home/user/data
@@ -35,8 +27,19 @@ geth --datadir /home/user/data/geth \
      init /home/user/data/CustomGenesis.json
 
 cp /tmp/graphql-server.mjs /home/user/data
+cp /tmp/package.json /home/user/data
 pushd data
-npm link express apollo-server graphql child_process util
+npm install -g --unsafe-perm=true --allow-root --verbose
+npm install -g --unsafe-perm=true --allow-root --verbose modclean ganache-cli \
+    truffle ipfs
+pushd /usr/lib/node_modules
+modclean -r -f
+popd
+pushd node_modules
+modclean -r -f
+popd
+
+jsipfs init
 popd
 chown -R user:user data .npm .node-gyp .config
 cat <<EOF >> /etc/sudoers

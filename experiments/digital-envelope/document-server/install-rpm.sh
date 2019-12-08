@@ -5,7 +5,7 @@ set -e -v
 
 source /tmp/proxy.sh
 
-curl https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz | tar -C /usr/local -xzf -
+curl https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz | tar -C /usr/local -xzf -
 
 pushd /usr/local/bin
 ln -s ../go/bin/go .
@@ -17,6 +17,7 @@ go help
 urpmi.update -a
 urpmi --no-recommends --excludedocs --auto \
     git \
+    libgit2-devel \
     gcc-c++ \
     make \
     nodejs \
