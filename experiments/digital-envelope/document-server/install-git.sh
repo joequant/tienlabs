@@ -31,13 +31,16 @@ popd
 #pushd go-ipfs
 #make build GOFLAGS=--tags=openssl
 #popd
-git clone https://github.com/joequant/mango-admin.git
+git clone https://github.com/joequant/mango-admin.git -b dev/work
 pushd mango-admin
 npm install -g
 popd
 git clone https://github.com/joequant/git-remote-mango.git
 pushd git-remote-mango
-npm install -g
+npm install --verbose
+pushd /usr/bin
+ln -s ../../home/user/git/git-remote-mango/git-remote-mango .
+popd
 popd
 git clone https://github.com/joequant/git-remote-gcrypt.git
 pushd git-remote-gcrypt
