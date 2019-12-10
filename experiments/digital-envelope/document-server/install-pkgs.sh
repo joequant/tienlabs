@@ -11,13 +11,10 @@ export HOME=/home/user
 export IPFS_PATH=/home/user/data/jsipfs
 
 cd /home/user
-chown user:user -R /home/user/git
-usermod -aG wheel user
 
 mkdir data
 mkdir data/logs
 mkdir data/ganache
-
 
 cp /tmp/startup.sh /home/user/data
 cp /tmp/CustomGenesis.json /home/user/data
@@ -38,9 +35,12 @@ popd
 pushd node_modules
 modclean -r -f
 popd
-
 jsipfs init
 popd
+chown user:user -R /home/user/git
+chown user:user -R /home/user/data
+usermod -aG wheel user
+
 chown -R user:user data .npm .node-gyp .config
 cat <<EOF >> /etc/sudoers
 %wheel        ALL=(ALL)       NOPASSWD: ALL
