@@ -8,7 +8,7 @@ services:
        args:
          base: mageia:7
      volumes:
-       - git:/home/user/git
+       - code:/home/user/code
        - data:/home/user/data
      command: /home/user/data/startup.sh
      ports:
@@ -19,12 +19,12 @@ services:
      stdin_open: true
      tty: true
 volumes:
-  git:
+  code:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: $PWD/git
+      device: $PWD/code
   data:
     driver: local
     driver_opts:

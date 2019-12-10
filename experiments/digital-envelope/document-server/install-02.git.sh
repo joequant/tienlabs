@@ -22,8 +22,8 @@ fi
 
 npm install -g --unsafe-perm=true --allow-root --verbose modclean
 cd ~user
-mkdir git
-pushd git
+mkdir code
+pushd code
 git clone https://github.com/ethereum/go-ethereum.git --depth=1
 pushd go-ethereum
 make geth
@@ -47,7 +47,7 @@ pushd node_modules
 modclean -r -f
 popd
 pushd /usr/bin
-ln -s ../../home/user/git/git-remote-mango/git-remote-mango .
+ln -s ../../home/user/code/git-remote-mango/git-remote-mango .
 popd
 popd
 git clone https://github.com/joequant/git-remote-gcrypt.git
@@ -64,8 +64,6 @@ popd
 #mv cmd/ipfs/ipfs /usr/bin
 #popd
 popd
-
-chown -R user:user git
 
 git config --unset --global http.proxy || true
 git config --unset --global http.sslVerify || true

@@ -37,7 +37,7 @@ modclean -r -f
 popd
 jsipfs init
 popd
-chown user:user -R /home/user/git
+chown user:user -R /home/user/code
 chown user:user -R /home/user/data
 usermod -aG wheel user
 
