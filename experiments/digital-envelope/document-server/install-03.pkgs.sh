@@ -38,11 +38,9 @@ modclean -r -f
 popd
 jsipfs init
 popd
-chown user:user -R /home/user/code
-chown user:user -R /home/user/data
-usermod -aG wheel user
 
-chown -R user:user data .npm .node-gyp .config
+usermod -aG wheel user
+chown -R user:user /home/user
 cat <<EOF >> /etc/sudoers
 %wheel        ALL=(ALL)       NOPASSWD: ALL
 EOF
