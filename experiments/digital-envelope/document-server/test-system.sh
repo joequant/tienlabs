@@ -6,6 +6,7 @@ export DEBUG="*"
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 echo $REPO
+pushd repo
 git clone mango://$REPO
 cd $REPO
 cat <<EOF > out.txt
@@ -15,3 +16,4 @@ EOF
 git add out.txt
 git commit -m "test"
 git push
+popd

@@ -8,8 +8,7 @@ services:
        args:
          base: mageia:7
      volumes:
-       - code:/home/user/code
-       - data:/home/user/data
+       - user:/home/user
      command: /home/user/data/startup.sh
      ports:
        - 8545:8545
@@ -19,15 +18,9 @@ services:
      stdin_open: true
      tty: true
 volumes:
-  code:
+  user:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: $PWD/code
-  data:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: $PWD/data
+      device: $HOME/user

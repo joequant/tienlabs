@@ -15,6 +15,7 @@ cd /home/user
 mkdir data
 mkdir data/logs
 mkdir data/ganache
+mkdir repo
 
 cp /tmp/startup.sh /home/user/data
 cp /tmp/CustomGenesis.json /home/user/data
