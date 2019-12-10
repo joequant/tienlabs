@@ -27,7 +27,7 @@ cp /tmp/graphql-server.mjs /home/user/data
 cp /tmp/package.json /home/user/data
 pushd data
 npm install -g --unsafe-perm=true --allow-root --verbose
-npm install -g --unsafe-perm=true --allow-root --verbose modclean ganache-cli \
+npm install -g --unsafe-perm=true --allow-root --verbose ganache-cli \
     truffle ipfs
 pushd /usr/lib/node_modules
 modclean -r -f

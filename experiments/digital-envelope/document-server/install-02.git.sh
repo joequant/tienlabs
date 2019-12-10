@@ -20,6 +20,7 @@ if [[ ! -z "$http_proxy" ]] ; then
     git config --global http.sslVerify false
 fi
 
+npm install -g --unsafe-perm=true --allow-root --verbose modclean
 cd ~user
 mkdir git
 pushd git
@@ -34,10 +35,17 @@ popd
 git clone https://github.com/joequant/mango-admin.git -b dev/work
 pushd mango-admin
 npm install -g
+pushd /usr/lib/node_modules
+modclean -r -f
 popd
+popd
+
 git clone https://github.com/joequant/git-remote-mango.git
 pushd git-remote-mango
 npm install --verbose
+pushd node_modules
+modclean -r -f
+popd
 pushd /usr/bin
 ln -s ../../home/user/git/git-remote-mango/git-remote-mango .
 popd
