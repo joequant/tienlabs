@@ -12,9 +12,11 @@ ln -s ../go/bin/go .
 popd
 go help
 
-#urpmi.removemedia -a
-#urpmi.addmedia --distrib --mirrorlist http://mirrors.mageia.org/api/mageia.7.x86_64.list
+urpmi.removemedia -a
+urpmi.addmedia --distrib --mirrorlist http://mirrors.mageia.org/api/mageia.7.x86_64.list
+urpmi.addmedia kernel http://mirror.tuxinator.org/mageia/distrib/7/x86_64/media/core/updates
 urpmi.update -a
+urpmi --auto-update
 urpmi --no-recommends --excludedocs --auto \
     git \
     libgit2-devel \
