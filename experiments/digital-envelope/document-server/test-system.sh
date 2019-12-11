@@ -2,7 +2,8 @@
 
 cd $HOME
 export REPO=$(mango-admin create | grep Repo | awk '{print $3;}')
-export DEBUG="*"
+export DEBUG="ipfs,mango"
+export IPFS_PATH=/home/user/data/jsipfs
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 echo $REPO
