@@ -14,5 +14,5 @@ else
 			 >> data/logs/ganache.log 2>&1 &
 fi
 node --experimental-modules /home/user/data/graphql-server.mjs >> data/logs/graphql-server.log 2>&1 &
-/usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
+#/usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
 exec /bin/bash
