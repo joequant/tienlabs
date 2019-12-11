@@ -10,6 +10,8 @@ services:
      volumes:
        - user:/home/user
      command: /home/user/data/startup.sh
+     environment:
+       - IPFS_PATH=/home/user/data/jsipfs
      ports:
        - 8545:8545
        - 4000:4000
