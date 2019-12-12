@@ -10,8 +10,6 @@ export TZ="UTC"
 export HOME=/home/user
 export IPFS_PATH=/home/user/data/jsipfs
 
-
-
 cd /home/user
 
 mkdir data
@@ -22,7 +20,7 @@ mkdir repo
 cp /tmp/startup.sh /home/user/data
 cp /tmp/CustomGenesis.json /home/user/data
 cp /tmp/test-system.sh /home/user/data
-cp /tmp/gitea.ini /home/user/data
+
 chmod a+x /home/user/data/startup.sh
 geth --datadir /home/user/data/geth \
      init /home/user/data/CustomGenesis.json
@@ -48,7 +46,9 @@ cat <<EOF >> /etc/sudoers
 %wheel        ALL=(ALL)       NOPASSWD: ALL
 EOF
 
+#: '
 # Gitea install
+cp /tmp/gitea.ini /home/user/data
 pushd /usr/local/bin
 curl https://dl.gitea.io/gitea/1.10.1/gitea-1.10.1-linux-amd64 > gitea
 chmod +x gitea
@@ -57,6 +57,14 @@ popd
 mkdir -p /var/lib/gitea/{custom,data,log}
 chown -R user:user /var/lib/gitea/
 chmod -R 750 /var/lib/gitea/
-mkdir /etc/gitea
-chown root:user /etc/gitea
-chmod 770 /etc/gitea
+#:'
+
+: '
+# Gogs install
+pushd /var/lib
+curl https://dl.gogs.io/0.11.91/gogs_0.11.91_linux_amd64.tar.gz | tar -C /var/lib -xzf -
+pushd /usr/local/bin
+ln -s ../../../var/lib/gogs/gogs .
+popd
+popd
+:'
