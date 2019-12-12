@@ -15,9 +15,9 @@ else
 fi
 node --experimental-modules /home/user/data/graphql-server.mjs >> data/logs/graphql-server.log 2>&1 &
 
-if [[ ! -z "${IPFS_URI}" ]]; then
+if [[ -n "$IPFS_URI" ]]; then
     /usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
 fi
 
-gitea web  -c /home/user/data/gitea.ini >> data/log/gitea.log &
+gitea web  -c /home/user/data/gitea.ini >> data/logs/gitea.log &
 exec /bin/bash
