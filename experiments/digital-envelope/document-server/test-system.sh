@@ -18,3 +18,7 @@ git add out.txt
 git commit -m "test"
 git push
 popd
+
+pushd /tmp
+git clone mango://$REPO
+popd
