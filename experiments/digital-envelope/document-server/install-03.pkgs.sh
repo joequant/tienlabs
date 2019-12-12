@@ -22,6 +22,7 @@ mkdir repo
 cp /tmp/startup.sh /home/user/data
 cp /tmp/CustomGenesis.json /home/user/data
 cp /tmp/test-system.sh /home/user/data
+cp /tmp/gitea.ini /home/user/data
 chmod a+x /home/user/data/startup.sh
 geth --datadir /home/user/data/geth \
      init /home/user/data/CustomGenesis.json

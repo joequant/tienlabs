@@ -1,4 +1,5 @@
 #!/bin/bash
+export GITEA_WORK_DIR=/var/lib/gitea/
 cd $HOME
 BLOCK=${BLOCK:-ganache}
 if [[ $BLOCK = "geth" ]] ; then
@@ -18,5 +19,5 @@ if [[ ! -z "${IPFS_URI}" ]]; then
     /usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
 fi
 
-gitea web  -c /etc/gitea/app.ini >> data/log/gitea.log &
+gitea web  -c /home/user/data/gitea.ini >> data/log/gitea.log &
 exec /bin/bash
