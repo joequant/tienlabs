@@ -12,6 +12,7 @@ services:
      command: /home/user/data/startup.sh
      environment:
        - IPFS_PATH=/home/user/data/jsipfs
+       - IPFS_URI=/ip4/127.0.0.1/tcp/5002
      ports:
        - 8545:8545
        - 4000:4000

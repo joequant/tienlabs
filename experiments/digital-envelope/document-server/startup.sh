@@ -1,7 +1,6 @@
 #!/bin/bash
 cd $HOME
 BLOCK=${BLOCK:-ganache}
-export IPFS_PATH=/home/user/data/jsipfs
 if [[ $BLOCK = "geth" ]] ; then
     /usr/bin/geth --datadir /home/user/data/geth \
 		  --networkid 15 --rpc >> \
@@ -14,5 +13,9 @@ else
 			 >> data/logs/ganache.log 2>&1 &
 fi
 node --experimental-modules /home/user/data/graphql-server.mjs >> data/logs/graphql-server.log 2>&1 &
-#/usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
+
+if [[ ! -z "${IPFS_URI}" ]]; then
+    /usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
+fi
+
 exec /bin/bash
