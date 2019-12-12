@@ -18,4 +18,5 @@ if [[ ! -z "${IPFS_URI}" ]]; then
     /usr/bin/jsipfs daemon >> data/logs/ipfs.log 2>&1 &
 fi
 
+gitea web  -c /etc/gitea/app.ini >> data/log/gitea.log &
 exec /bin/bash

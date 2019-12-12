@@ -17,6 +17,7 @@ services:
        - 8545:8545
        - 4000:4000
        - 5002:5002
+       - 3000:3000
      user: user
      stdin_open: true
      tty: true

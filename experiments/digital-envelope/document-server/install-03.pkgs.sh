@@ -10,6 +10,8 @@ export TZ="UTC"
 export HOME=/home/user
 export IPFS_PATH=/home/user/data/jsipfs
 
+
+
 cd /home/user
 
 mkdir data
@@ -44,3 +46,16 @@ chown -R user:user /home/user
 cat <<EOF >> /etc/sudoers
 %wheel        ALL=(ALL)       NOPASSWD: ALL
 EOF
+
+# Gitea install
+pushd /usr/local/bin
+curl https://dl.gitea.io/gitea/1.10.1/gitea-1.10.1-linux-amd64 > gitea
+chmod +x gitea
+popd
+
+mkdir -p /var/lib/gitea/{custom,data,log}
+chown -R user:user /var/lib/gitea/
+chmod -R 750 /var/lib/gitea/
+mkdir /etc/gitea
+chown root:user /etc/gitea
+chmod 770 /etc/gitea
