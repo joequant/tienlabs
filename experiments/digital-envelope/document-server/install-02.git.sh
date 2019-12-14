@@ -25,13 +25,21 @@ cd ~user
 mkdir code
 pushd code
 
+git clone https://github.com/git-lfs/git-lfs
+pushd git-lfs
+make
+mv bin/git-lfs /usr/bin
+popd
+popd
+git lfs install
+rm -rf git-lfs
+
 git clone https://github.com/ethereum/go-ethereum.git --depth=1
 pushd go-ethereum
 make geth
-pushd /usr/bin
-ln -s ../../home/user/code/go-ethereum/build/bin/geth .
+mv build/bin/geth /usr/bin
 popd
-popd
+rm -rf go-ethereum
 
 git clone https://github.com/joequant/mango-admin.git -b dev/work
 pushd mango-admin
@@ -49,7 +57,6 @@ modclean -r -f
 popd
 pushd /usr/bin
 ln -s ../../home/user/code/git-remote-mango/git-remote-mango .
-popd
 popd
 
 #pushd go-ipfs
