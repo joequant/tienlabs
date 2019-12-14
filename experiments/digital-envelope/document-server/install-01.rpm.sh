@@ -27,7 +27,6 @@ urpmi --no-recommends --excludedocs --auto \
     python3-pip \
     sudo \
     openssl-devel \
-    gnupg2
-
-
+    gnupg2 \
+    cargo
 

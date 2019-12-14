@@ -34,6 +34,11 @@ popd
 git lfs install
 rm -rf git-lfs
 
+git clone https://github.com/joequant/git-lfs-ipfs
+pushd git-lfs-ipfs/git-lfs-ipfs-cli
+cargo build --release
+popd
+
 git clone https://github.com/ethereum/go-ethereum.git --depth=1
 pushd go-ethereum
 make geth
