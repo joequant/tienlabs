@@ -1,0 +1,3 @@
+[submodule "experiments/blockchain-envelope"]
+	path = experiments/blockchain-envelope
+	url = https://github.com/joequant/blockchain-envelope
