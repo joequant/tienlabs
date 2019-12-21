@@ -1,15 +1,6 @@
-[submodule "naivecoin"]
-	path = experiments/local-blockchain/naivecoin
-	url = https://github.com/conradoqg/naivecoin
 [submodule "experiments/digital-envelope/docker-compose-gitea"]
 	path = experiments/digital-envelope/docker-compose-gitea
 	url = https://github.com/sguter90/docker-compose-gitea
-[submodule "experiments/chat-app/status-react"]
-	path = experiments/chat-app/status-react
-	url = https://github.com/joequant/status-react
-[submodule "experiments/chat-app/status-go"]
-	path = experiments/chat-app/status-go
-	url = https://github.com/joequant/status-go
 [submodule "experiments/blockchain-envelope"]
 	path = experiments/blockchain-envelope
 	url = http://github.com/joequant/blockchain-envelope
