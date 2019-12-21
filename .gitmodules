@@ -1,6 +1,0 @@
-[submodule "experiments/digital-envelope/docker-compose-gitea"]
-	path = experiments/digital-envelope/docker-compose-gitea
-	url = https://github.com/sguter90/docker-compose-gitea
-[submodule "experiments/blockchain-envelope"]
-	path = experiments/blockchain-envelope
-	url = http://github.com/joequant/blockchain-envelope
