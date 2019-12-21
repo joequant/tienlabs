@@ -28,5 +28,7 @@ urpmi --no-recommends --excludedocs --auto \
     sudo \
     openssl-devel \
     gnupg2 \
-    cargo
+    cargo \
+    pam-devel
+
 
